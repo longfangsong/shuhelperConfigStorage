@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Build the Docker image
         run: |
-          docker build . -t shuhelperConfigStorage
-          docker tag shuhelperConfigStorage ${{ secrets.DOCKER_USERNAME }}/shuhelperConfigStorage:${GITHUB_SHA}
+          docker build . -t shuhelper-config-storage
+          docker tag shuhelper-config-storage ${{ secrets.DOCKER_USERNAME }}/shuhelper-config-storage:${GITHUB_SHA}
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-          docker push ${{ secrets.DOCKER_USERNAME }}/shuhelperConfigStorage
+          docker push ${{ secrets.DOCKER_USERNAME }}/shuhelper-config-storage
